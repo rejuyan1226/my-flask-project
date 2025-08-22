@@ -3,128 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Size Predictor</title>
+    <title>AI Size Predictor | Enhanced Design</title>
+    
+    <!-- Tailwind CSS for a modern, utility-first design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for a clean, professional typeface -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        /* Basic styling for a clean look */
+        /* Apply the custom font and a sophisticated dark background */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f8f9fa; /* Light gray background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 1rem;
-            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* A deep navy blue background */
         }
         
-        /* Main form container */
-        .container {
-            background-color: #ffffff; /* White background */
-            border: 1px solid #dee2e6; /* Light border */
-            border-radius: 8px;
-            padding: 2rem;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        /* A keyframe animation for a smooth fade-in and upward slide effect */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        /* Form elements styling */
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        h1 {
-            font-size: 1.75rem;
-            margin: 0 0 0.5rem 0;
-            text-align: center;
-        }
-        
-        p {
-            text-align: center;
-            color: #6c757d; /* Muted text color */
-            margin: 0 0 2rem 0;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ced4da;
-            border-radius: 4px;
-            font-size: 1rem;
-            box-sizing: border-box; /* Ensures padding doesn't affect width */
-        }
-        
-        /* Submit button styling */
-        button {
-            width: 100%;
-            padding: 0.75rem;
-            font-size: 1rem;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #0d6efd; /* Simple blue background */
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        /* Hover effect for the button */
-        button:hover {
-            background-color: #0b5ed7;
+        /* Class to apply the animation */
+        .fade-in-up {
+            animation: fadeInUp 0.7s ease-out forwards;
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex items-center justify-center p-4">
 
-    <div class="container">
+    <!-- Main Form Container with a modern "glassmorphism" effect -->
+    <div class="w-full max-w-md bg-gray-900/50 backdrop-blur-xl rounded-2xl shadow-2xl p-8 fade-in-up">
         
-        <div>
-            <h1>Find Your Perfect Fit</h1>
-            <p>Enter your measurements to predict your size.</p>
+        <!-- Header Section -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-extrabold text-white tracking-tight">
+                Find Your <span class="bg-gradient-to-r from-purple-500 to-indigo-400 text-transparent bg-clip-text">Perfect Fit</span>
+            </h1>
+            <p class="text-gray-400 mt-2">Enter your measurements to get started.</p>
         </div>
 
-        <form method="POST" action="/predict">
+        <!-- Prediction Form -->
+        <form method="POST" action="/predict" class="space-y-6">
             
-            <div class="form-group">
-                <label for="weight">Weight (kg)</label>
+            <!-- Weight Input Field -->
+            <div>
+                <label for="weight" class="block text-sm font-semibold text-gray-300 mb-1">Weight (kg)</label>
                 <input 
                     type="text" 
                     id="weight" 
                     name="weight" 
                     placeholder="e.g., 68" 
                     required
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-300"
                 >
             </div>
             
-            <div class="form-group">
-                <label for="age">Age (years)</label>
+            <!-- Age Input Field -->
+            <div>
+                <label for="age" class="block text-sm font-semibold text-gray-300 mb-1">Age</label>
                 <input 
                     type="text" 
                     id="age" 
                     name="age" 
                     placeholder="e.g., 25" 
                     required
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-300"
                 >
             </div>
             
-            <div class="form-group">
-                <label for="height">Height (cm)</label>
+            <!-- Height Input Field -->
+            <div>
+                <label for="height" class="block text-sm font-semibold text-gray-300 mb-1">Height (cm)</label>
                 <input 
                     type="text" 
                     id="height" 
                     name="height" 
                     placeholder="e.g., 175" 
                     required
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-300"
                 >
             </div>
             
-            <button type="submit">
+            <!-- Submit Button with enhanced styling and hover effect -->
+            <button 
+                type="submit" 
+                class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg shadow-lg hover:bg-indigo-700 transition-transform transform hover:scale-105 duration-300 ease-in-out"
+            >
                 Predict My Size
             </button>
         </form>

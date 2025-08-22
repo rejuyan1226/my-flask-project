@@ -4,104 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Prediction Result</title>
+    
+    <!-- Tailwind CSS for a modern, utility-first design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for a clean, professional typeface -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        /* Basic styling for a clean look */
+        /* Apply the custom font and a sophisticated dark background */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f8f9fa; /* Light gray background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 1rem;
-            box-sizing: border-box;
-            text-align: center; /* Center all text */
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* A deep navy blue background */
         }
         
-        /* Main result container */
-        .container {
-            background-color: #ffffff; /* White background */
-            border: 1px solid #dee2e6; /* Light border */
-            border-radius: 8px;
-            padding: 2rem;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        /* A keyframe animation for a smooth fade-in and upward slide effect */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        /* Header styling */
-        h1 {
-            font-size: 1.75rem;
-            margin: 0 0 0.5rem 0;
-        }
-        
-        p {
-            color: #6c757d; /* Muted text color */
-            margin: 0 0 2rem 0;
-        }
-
-        /* The predicted size display */
-        .prediction-box {
-            background-color: #e9ecef; /* Light gray box for emphasis */
-            border-radius: 4px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .prediction-text {
-            font-size: 4rem; /* Large font for the prediction */
-            font-weight: bold;
-            color: #212529; /* Dark text color */
-            margin: 0;
-        }
-        
-        /* "Go Back" button styling */
-        .back-button {
-            display: inline-block;
-            width: 100%;
-            padding: 0.75rem;
-            font-size: 1rem;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #0d6efd; /* Simple blue background */
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none; /* Remove underline from link */
-            box-sizing: border-box;
-        }
-        
-        /* Hover effect for the button */
-        .back-button:hover {
-            background-color: #0b5ed7;
+        /* Class to apply the animation */
+        .fade-in-up {
+            animation: fadeInUp 0.7s ease-out forwards;
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex items-center justify-center p-4">
 
-    <!-- Main Result Container -->
-    <div class="container">
+    <!-- Main Result Container with a modern "glassmorphism" effect -->
+    <div class="w-full max-w-md bg-gray-900/50 backdrop-blur-xl rounded-2xl shadow-2xl p-8 text-center fade-in-up">
         
-        <!-- Header -->
-        <div>
-            <h1>Prediction Result</h1>
-            <p>Based on your measurements, we predict your size is:</p>
+        <!-- Header Section -->
+        <div class="mb-6">
+            <h1 class="text-3xl font-bold text-white">Prediction Result</h1>
+            <p class="text-gray-400 mt-2">Based on your measurements, we predict your size is:</p>
         </div>
 
-        <!-- The Predicted Size -->
-        <div class="prediction-box">
-            <p class="prediction-text">
+        <!-- The Predicted Size Display Box -->
+        <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-8 my-8">
+            <p class="text-7xl font-extrabold tracking-tight bg-gradient-to-r from-purple-500 to-indigo-400 text-transparent bg-clip-text">
                 <!-- 
-                  BACKEND NOTE: This is where the prediction from your model will be displayed.
-                  The 'prediction' variable is passed from your Flask app.
+                    BACKEND NOTE: The 'prediction' variable from your Flask app is inserted here.
                 -->
                 <strong>{{ prediction }}</strong>
             </p>
         </div>
         
         <!-- Go Back Button -->
-        <a href="/" class="back-button">
+        <a 
+            href="/" 
+            class="inline-block w-full bg-indigo-600 text-white font-bold py-3 rounded-lg shadow-md hover:bg-indigo-700 transition-transform transform hover:scale-105 duration-300 ease-in-out no-underline"
+        >
             Predict Again
         </a>
     </div>
