@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Prediction Result</title>
+    <style>
+        /* Basic styling for a clean look */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1rem;
+            box-sizing: border-box;
+            text-align: center; /* Center all text */
+        }
+        
+        /* Main result container */
+        .container {
+            background-color: #ffffff; /* White background */
+            border: 1px solid #dee2e6; /* Light border */
+            border-radius: 8px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        /* Header styling */
+        h1 {
+            font-size: 1.75rem;
+            margin: 0 0 0.5rem 0;
+        }
+        
+        p {
+            color: #6c757d; /* Muted text color */
+            margin: 0 0 2rem 0;
+        }
+
+        /* The predicted size display */
+        .prediction-box {
+            background-color: #e9ecef; /* Light gray box for emphasis */
+            border-radius: 4px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .prediction-text {
+            font-size: 4rem; /* Large font for the prediction */
+            font-weight: bold;
+            color: #212529; /* Dark text color */
+            margin: 0;
+        }
+        
+        /* "Go Back" button styling */
+        .back-button {
+            display: inline-block;
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #0d6efd; /* Simple blue background */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline from link */
+            box-sizing: border-box;
+        }
+        
+        /* Hover effect for the button */
+        .back-button:hover {
+            background-color: #0b5ed7;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Result Container -->
+    <div class="container">
+        
+        <!-- Header -->
+        <div>
+            <h1>Prediction Result</h1>
+            <p>Based on your measurements, we predict your size is:</p>
+        </div>
+
+        <!-- The Predicted Size -->
+        <div class="prediction-box">
+            <p class="prediction-text">
+                <!-- 
+                  BACKEND NOTE: This is where the prediction from your model will be displayed.
+                  The 'prediction' variable is passed from your Flask app.
+                -->
+                <strong>{{ prediction }}</strong>
+            </p>
+        </div>
+        
+        <!-- Go Back Button -->
+        <a href="/" class="back-button">
+            Predict Again
+        </a>
+    </div>
+
+</body>
+</html>
